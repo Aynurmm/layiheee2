@@ -34,7 +34,7 @@ inp1.addEventListener("input", function () {
 
 inp2.addEventListener('input' , function(){
   const amount2=inp2.value
-  const apiUrl2=`${apiUrl}?api_key=${apiKey}&from=${fromCurrency}&to=${toCurrency}&amount=${amount2}`
+  const apiUrl2=`${apiUrl}?api_key=${apiKey}&from=${toCurrency}&to=${fromCurrency}&amount=${amount2}`
   fetch(apiUrl2)
   .then(res=>res.json())
   .then(data=>{
@@ -53,7 +53,7 @@ buttons1.forEach((button)=>{
     button.classList.add("active");
   fromCurrency=button.innerText;
   const amount3=inp2.value;
-  const apiUrl3=`${apiUrl}?api_key=${apiKey}&from=${fromCurrency}&to=${toCurrency}&amount=${amount3}`
+  const apiUrl3=`${apiUrl}?api_key=${apiKey}&from=${toCurrency}&to=${fromCurrency}&amount=${amount3}`
   fetch(apiUrl3)
   .then(res=>res.json())
   .then(data=>{
@@ -108,16 +108,16 @@ const apiUrl5 = `${apiUrl}?api_key=${apiKey}&from=RUB&to=USD&amount=${1}`;
 buttons1.forEach(button=> {
     button.addEventListener('click', () => {
          fromCurrency = button.innerText;
-        const apiUrl3 = `${apiUrl}?api_key=${apiKey}&from=${fromCurrency}&to=${toCurrency}&amount=${1}`;
-        fetch(apiUrl3)
+        const apiUrl7= `${apiUrl}?api_key=${apiKey}&from=${fromCurrency}&to=${toCurrency}&amount=${1}`;
+        fetch(apiUrl7)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 span1.innerText = `1 ${fromCurrency} = ${data.value} ${toCurrency}`
             });
-        const apiUrl = `${apiUrl}?api_key=${apiKey}&from=${toCurrency}&to=${fromCurrency}&amount=${1}`;
+        const apiUrl8 = `${apiUrl}?api_key=${apiKey}&from=${toCurrency}&to=${fromCurrency}&amount=${1}`;
 
-            fetch(apiUrl)
+            fetch(apiUrl8)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -128,14 +128,10 @@ buttons1.forEach(button=> {
 
 buttons2.forEach((button) => {
   button.addEventListener("click", () => {
-    buttons2.forEach((btn) => {
-      btn.classList.remove("active2");
-    });
-    button.classList.add("active2");
     toCurrency = button.innerText;
-    const amount4 = inp1.value;
-    const apiUrl4 = `${apiUrl}?api_key=${apiKey}&from=${fromCurrency}&to=${toCurrency}&amount=${amount4}`;
-    fetch(apiUrl4)
+    // const amount4=inp1.value
+    const apiUrl9= `${apiUrl}?api_key=${apiKey}&from=${toCurrency}&to=${fromCurrency}&amount=${1}`;
+    fetch(apiUrl9)
       .then((res) => res.json())
       .then((data) => {
         inp2.value = data.value.toFixed(4);
@@ -143,6 +139,17 @@ buttons2.forEach((button) => {
           inp2.value = "";
         }
         console.log(data);
+        span1.innerText = `1 ${toCurrency} = ${data.value} ${fromCurrency}`
+
       });
+      const apiUrl10 = `${apiUrl}?api_key=${apiKey}&from=${fromCurrency}&to=${toCurrency}&amount=${1}`;
+
+            fetch(apiUrl10)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                span2.innerText = `1 ${fromCurrency} = ${data.value} ${toCurrency}`
+                
   });
+});
 });
